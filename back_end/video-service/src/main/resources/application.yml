@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: video-service
+  config:
+    import: "optional:configserver:http://config-service:8888"
+  datasource:
+    url: jdbc:postgresql://video-db:5432/video_db
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+
+server:
+  port: 8081
